@@ -1,15 +1,25 @@
 public class Main {
     public static void main(String[] args) {
-        GestionStock gestionStock = new GestionStock();
+        //pharmacie
+        Pharmacie pharmacie = new Pharmacie();
 
-        // Ajout de produits en stock
-        gestionStock.ajouterProduit(new Produit("Paracétamol", 3));
-        gestionStock.ajouterProduit(new Produit("Ibuprofène", 7));
-        gestionStock.ajouterProduit(new Produit("Aspirine", 2));
-        gestionStock.ajouterProduit(new Produit("Vitamine C", 10));
-        gestionStock.ajouterProduit(new Produit("Antibiotique", 1));
+        // Création d'un admin et d'un employé
+        Admin admin = new Admin("Nasdas");
+        Employe employe1 = new Employe("Assia");
+        Employe employe2 = new Employe("Cappucino");
 
-        // Affichage des produits en faible stock
-        gestionStock.afficherProduitsFaibles();
+        //ajout des employés
+        pharmacie.ajouterUtilisateur(employe1);
+        pharmacie.ajouterUtilisateur(employe2);
+
+        // la liste des utilisateurs
+        pharmacie.afficherUtilisateurs();
+
+        // gérer les utilisateurs
+        admin.ajouterUtilisateur(employe1);
+        admin.supprimerUtilisateur(employe2);
+
+        // Affichage après suppression
+        pharmacie.afficherUtilisateurs();
     }
 }
